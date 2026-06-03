@@ -22,8 +22,8 @@ client.once('ready', async () => {
   console.log('Bot online!');
 
   const rulesEnabled = false;
-  const supportEnabled = true;
-  const linksEnabled = true;
+  const supportEnabled = false;
+  const linksEnabled = false;
 
   // REGRAS
   const rulesChannel =
