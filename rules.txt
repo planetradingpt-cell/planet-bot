@@ -1,0 +1,73 @@
+const { EmbedBuilder } = require('discord.js');
+
+async function sendRules(channel) {
+
+  const embed = new EmbedBuilder()
+    .setColor('#99c1e0')
+
+    .setDescription(`
+# __**REGRAS & DISCLAIMER**__
+
+__*O incumprimento pode resultar num banimento ou suspensão temporária.*__
+
+**1. Respeito entre membros**
+Não faças comentários ofensivos, rudes ou de assédio.
+
+**2. Linguagem inadequada**
+O uso de palavrões deve ser mantido num nível razoável. Qualquer linguagem ofensiva dirigida a outro utilizador é proibida.
+
+**3. Spam e flood**
+Não envies múltiplas mensagens consecutivas. Spam, flood ou qualquer comportamento que prejudique a leitura e organização do chat não é permitido.
+
+**4. Fraude e partilha de conteúdo pago**
+É proibida a venda, partilha ou distribuição de conteúdos pagos, tanto no servidor como por mensagens privadas relacionadas com a comunidade.
+
+**5. Conteúdo NSFW / Adulto**
+Não é permitido publicar, partilhar ou divulgar conteúdo pornográfico, sexual, explícito ou qualquer material considerado NSFW.
+
+**6. Publicidade e autopromoção**
+Publicidade não autorizada, divulgação de outras comunidades, streams, redes sociais ou promoção pessoal excessiva não são permitidas.
+
+**7. Nome e foto de perfil apropriados**
+Os utilizadores devem manter nomes e fotografias de perfil adequados. Conteúdo ofensivo, provocador ou impróprio poderá resultar em punição.
+
+**8. Raids e atividades maliciosas**
+Qualquer tentativa de raid, perturbação organizada ou comportamento malicioso contra o servidor é proibida e poderá resultar em banimento permanente.
+
+**9. Ameaças e intimidação**
+Ameaças de qualquer natureza, incluindo intimidação, chantagem ou incentivo à violência, não serão toleradas.
+
+**10. Cumprimento das Diretrizes do Discord**
+Todos os membros devem respeitar as Diretrizes da Comunidade e os Termos de Serviço do Discord:
+https://discord.com/guidelines
+
+**11. Mensagens privadas e segurança**
+O staff não solicitará informações pessoais ou dados sensíveis por mensagens privadas. Mantém atenção a tentativas de fraude ou impersonação.
+
+**12. Falsificação de identidade**
+É proibido fazer-se passar por outros utilizadores, membros da equipa, empresas ou qualquer outra entidade.
+
+**13. Nomes sem identificação legível**
+Não são permitidos nomes compostos exclusivamente por emojis, caracteres invisíveis ou símbolos que dificultem a identificação do utilizador.
+
+**13334. Aceitação das regras**
+Ao permanecer neste servidor, confirmas que leste, compreendeste e aceitas todas as regras e condições apresentadas neste aviso legal.
+`)
+
+    .setThumbnail('attachment://logoplanet.png')
+    .setImage('attachment://disclouser.webp')
+
+    .setFooter({
+      text: 'Planet Trading - New Era • Rules'
+    })
+
+    .setTimestamp();
+
+  await channel.send({
+    embeds: [embed],
+    files: ['./logoplanet.png', './disclouser.webp']
+  });
+
+}
+
+module.exports = { sendRules };
