@@ -399,4 +399,7 @@ The channel will be locked.
 
 });
 
-client.login('MTUwOTI4NTc0MTQyMTY1ODIyMg.G8KVt9.vJC6GGtNppyRhywMg_YUum1c8LgHtaYtW091A8');
+
+
+
+client.login(process.env.DISCORD_TOKEN);
