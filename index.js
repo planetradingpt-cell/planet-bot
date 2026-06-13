@@ -24,6 +24,7 @@ client.once('ready', async () => {
   const rulesEnabled = false;
   const supportEnabled = false;
   const linksEnabled = false;
+  const startHereEnabled = true;
 
   // REGRAS
   const rulesChannel =
@@ -142,6 +143,50 @@ https://t.me/+Sj1s5_uexZNiZWM0
         './logoplanet.png',
         './logo_telegram.png'
       ]
+    });
+
+  }
+
+  // START HERE
+
+  const startHereChannel =
+    await client.channels.fetch('1509713497045602434');
+
+  const startHereEmbed = new EmbedBuilder()
+    .setColor('#99c1e0')
+    .setDescription(`
+# __**A TUA JORNADA NO TRADING COMEÇA AQUI...**__
+
+Bem-vindo à comunidade **Planet Trading**.
+
+Parabéns por teres dado um dos passos mais importantes da tua jornada como trader.
+
+Aqui vais encontrar o conhecimento, as estratégias e o acompanhamento necessários para evoluíres de forma consistente.
+
+## __COMEÇA POR AQUI:__
+
+✅ Escolhe os teus cargos em **#get-roles**
+
+📖 Obtém acesso ao guia completo em **#claim-a-z-trading-guide**
+
+🎓 Acede às aulas premium em **#premium-qt-lectures**
+
+📋 Ativa o teu Trading Journal em **#claim-trading-journal**
+
+📅 Consulta os horários em **#horários**
+
+💬 Apresenta-te e junta-te à comunidade em **#premium-chat**
+
+Estamos felizes por te ter connosco.
+Bem-vindo à Planet Trading 🚀
+`)
+    .setImage('attachment://start-here.jpeg');
+
+  if (startHereEnabled) {
+
+    await startHereChannel.send({
+      embeds: [startHereEmbed],
+      files: ['./start-here.jpeg']
     });
 
   }
