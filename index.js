@@ -25,7 +25,7 @@ client.once('ready', async () => {
   const rulesEnabled = false;
   const supportEnabled = false;
   const linksEnabled = false;
-  const startHereEnabled = true;
+  const startHereEnabled = false;
 
   // REGRAS
   const rulesChannel =
@@ -167,7 +167,7 @@ https://t.me/+Sj1s5_uexZNiZWM0
     .setDescription(`
 ### __**A Tua Trading Journey Começa Aqui...**__
 
-Bem-vindo à <@&1519130400109236224> comunidade!
+Bem-vindo à comunidade!
 
 Parabéns, acabaste de fazer um dos melhores investimentos em ti próprio e na tua jornada de trading.
 Agora estás no sítio certo, e estou confiante de que esta é a etapa final da tua jornada rumo à consistência e rentabilidade.
@@ -193,10 +193,6 @@ Por fim apresenta-te e junta-te à comunidade em **#premium-chat**
   if (startHereEnabled) {
 
     await startHereChannel.send({
-      content: '<@&1519130400109236224>',
-      allowedMentions: {
-        roles: ['1519130400109236224']
-      },
       embeds: [startHereEmbed],
       files: [logoPlanet, startHereImage]
     });
@@ -214,7 +210,7 @@ client.on('guildMemberAdd', async (member) => {
     .setColor('#99c1e0')
     .setTitle('Planet Trading - New Era')
     .setDescription(`
-Boas ${member}, Bem-vindo à Planet Trading! 🌀
+Boas ${member}, Bem-vindo à Planet Trading!
 
 Apresenta-te no <#1478774980312432745>
 `)
