@@ -25,7 +25,7 @@ client.once('ready', async () => {
   const rulesEnabled = false;
   const supportEnabled = false;
   const linksEnabled = false;
-  const startHereEnabled = false;
+  const startHereEnabled = true;
 
   // REGRAS
   const rulesChannel =
@@ -167,7 +167,7 @@ https://t.me/+Sj1s5_uexZNiZWM0
     .setDescription(`
 ### __**A Tua Trading Journey Começa Aqui...**__
 
-Bem-vindo à comunidade!
+Bem-vindo à <@&1519130400109236224> comunidade!
 
 Parabéns, acabaste de fazer um dos melhores investimentos em ti próprio e na tua jornada de trading.
 Agora estás no sítio certo, e estou confiante de que esta é a etapa final da tua jornada rumo à consistência e rentabilidade.
