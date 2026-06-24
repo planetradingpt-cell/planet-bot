@@ -7,7 +7,8 @@ const {
   ActionRowBuilder,
   ButtonBuilder,
   ButtonStyle,
-  ChannelType
+  ChannelType,
+  AttachmentBuilder
 } = require('discord.js');
 
 const client = new Client({
@@ -152,41 +153,52 @@ https://t.me/+Sj1s5_uexZNiZWM0
   const startHereChannel =
     await client.channels.fetch('1509713497045602434');
 
+  const logoPlanet = new AttachmentBuilder('./logoplanet.png', {
+    name: 'logoplanet.png'
+  });
+
+  const startHereImage = new AttachmentBuilder('./start-here.jpeg', {
+    name: 'start-here.jpeg'
+  });
+
   const startHereEmbed = new EmbedBuilder()
     .setColor('#99c1e0')
+    .setThumbnail('attachment://logoplanet.png')
     .setDescription(`
-# __**A TUA JORNADA NO TRADING COMEÇA AQUI...**__
+### __**A Tua Trading Journey Começa Aqui...**__
 
-Bem-vindo à comunidade **Planet Trading**.
+Bem-vindo à <@&1519130400109236224> comunidade!
 
-Parabéns por teres dado um dos passos mais importantes da tua jornada como trader.
+Parabéns, acabaste de fazer um dos melhores investimentos em ti próprio e na tua jornada de trading.
+Agora estás no sítio certo, e estou confiante de que esta é a etapa final da tua jornada rumo à consistência e rentabilidade.
 
-Aqui vais encontrar o conhecimento, as estratégias e o acompanhamento necessários para evoluíres de forma consistente.
+O conhecimento e as estratégias que vais aprender aqui foram desenvolvidos para elevar o teu trading a outro patamar. Se mantiveres a disciplina, o compromisso e aplicares o que aprenderes, os resultados poderão ir muito além dos lucros no mercado, poderão transformar a tua vida por completo.
 
-## __COMEÇA POR AQUI:__
+### __**Começa Por Aqui:**__
 
-✅ Escolhe os teus cargos em **#get-roles**
+Seleciona os teus cargos: **#get-roles**
 
-📖 Obtém acesso ao guia completo em **#claim-a-z-trading-guide**
+Obtém acesso ao guia A-Z completo: **#claim-a-z-trading-guide**
 
-🎓 Acede às aulas premium em **#premium-qt-lectures**
+Acede às aulas premium: **#premium-qt-lectures**
 
-📋 Ativa o teu Trading Journal em **#claim-trading-journal**
+Ativa e Começa o teu Trading Journal: **#claim-trading-journal**
 
-📅 Consulta os horários em **#horários**
+Consulta os horários: **#horários** para saberes a que horas as coisas acontecem.
 
-💬 Apresenta-te e junta-te à comunidade em **#premium-chat**
-
-Estamos felizes por te ter connosco.
-Bem-vindo à Planet Trading 🚀
+Por fim apresenta-te e junta-te à comunidade em **#premium-chat**
 `)
     .setImage('attachment://start-here.jpeg');
 
   if (startHereEnabled) {
 
     await startHereChannel.send({
+      content: '<@&1519130400109236224>',
+      allowedMentions: {
+        roles: ['1519130400109236224']
+      },
       embeds: [startHereEmbed],
-      files: ['./start-here.jpeg']
+      files: [logoPlanet, startHereImage]
     });
 
   }
