@@ -203,8 +203,9 @@ Por fim apresenta-te e junta-te à comunidade em **#premium-chat**
 
 // WELCOME DM
 client.on('guildMemberAdd', async (member) => {
-  const welcomeChannel =
-    await client.channels.fetch('1478774980312432745');
+  try {
+    const welcomeChannel =
+      await client.channels.fetch('1478774980312432745');
 
     await welcomeChannel.send({
       embeds: [publicWelcomeEmbed],
@@ -217,11 +218,8 @@ client.on('guildMemberAdd', async (member) => {
     });
 
   } catch (err) {
-
     console.log(err);
-
   }
-
 });
 
 // BOTÕES
