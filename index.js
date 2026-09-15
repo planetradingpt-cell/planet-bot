@@ -206,20 +206,6 @@ client.on('guildMemberAdd', async (member) => {
   const welcomeChannel =
     await client.channels.fetch('1478774980312432745');
 
-  const welcomeEmbed = new EmbedBuilder()
-    .setColor('#99c1e0')
-    .setTitle('Planet Trading - New Era')
-    .setDescription(`
-Boas ${member}, Bem-vindo à Planet Trading!
-
-Apresenta-te no <#1478774980312432745>
-
-Como bónus, tens acesso FREE ao meu Curso de Trading sobre Quarterly Theory, para te ajudar a começar. 👉 
-
-Estou entusiasmado por acompanhar a tua evolução!
-– Daniel Porto
-`)
-    .setThumbnail('attachment://logoplanet.png');
 
   try {
 
