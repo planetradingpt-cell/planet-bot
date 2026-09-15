@@ -25,7 +25,7 @@ client.once('ready', async () => {
   const rulesEnabled = false;
   const supportEnabled = false;
   const linksEnabled = false;
-  const startHereEnabled = true;
+  const startHereEnabled = false;
 
   // REGRAS
   const rulesChannel =
