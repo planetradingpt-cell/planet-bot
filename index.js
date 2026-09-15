@@ -206,26 +206,6 @@ client.on('guildMemberAdd', async (member) => {
   const welcomeChannel =
     await client.channels.fetch('1478774980312432745');
 
-
-  try {
-
-    const publicWelcomeEmbed = new EmbedBuilder()
-      .setColor('#99c1e0')
-      .setDescription(`
-Bem-vindo ${member}, estamos super felizes por te ter como parte da comunidade <@&1478774980312432746>!
-
-Vamos configurar tudo para ti o mais rápido possível para que possas começar a tua jornada:
-
-Vai até o canal <#1478774980312432745> e vê, pois lá estão todas as informações necessárias para começar: cargos personalizados, acesso ao Guia de Trading A-Z, palestras premium, o teu diário de trading e uma programação semanal para que saibas o que esperar e quando.
-
-Ah, e mais uma coisa, não deixes de te apresentar no chat! Estamos animados em receber-te como parte da nossa comunidade.
-
-Cada novo membro torna-nos uma equipa maior, e mal podemos esperar para crescer e ter sucesso contigo.
-
-*A tua jornada começa aqui...*
-`)
-      .setThumbnail('attachment://logoplanet.png');
-
     await welcomeChannel.send({
       embeds: [publicWelcomeEmbed],
       files: ['./logoplanet.png']
