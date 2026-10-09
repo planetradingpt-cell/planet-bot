@@ -203,22 +203,75 @@ Por fim apresenta-te e junta-te à comunidade em **#premium-chat**
 
 // WELCOME DM
 client.on('guildMemberAdd', async (member) => {
+  console.log(`[WELCOME] Novo membro detetado: ${member.user.tag} (${member.id})`);
+
+  // MENSAGEM PRIVADA
+  const welcomeEmbed = new EmbedBuilder()
+    .setColor('#99c1e0')
+    .setTitle('Planet Trading - New Era')
+    .setDescription(`
+Boas ${member.user.username}, bem-vindo à Planet Trading!
+
+Apresenta-te no <#1478774980312432745>.
+
+Como bónus, tens acesso FREE ao meu Curso de Trading sobre Quarterly Theory, para te ajudar a começar. 🚀
+
+Estou entusiasmado por acompanhar a tua evolução!
+
+— Daniel Porto
+`)
+    .setThumbnail('attachment://logoplanet.png');
+
+  // MENSAGEM PÚBLICA
+  const publicWelcomeEmbed = new EmbedBuilder()
+    .setColor('#99c1e0')
+    .setDescription(`
+Bem-vindo ${member}, estamos super felizes por te ter como parte da comunidade <@&1519130400109236224>!
+
+Vamos configurar tudo para ti o mais rápido possível para que possas começar a tua jornada:
+
+Vai até ao canal <#1509713497045602434> para começar, pois lá estão todas as informações necessárias: cargos personalizados, acesso ao Guia de Trading A-Z, aulas premium, Trading Journal e programação semanal.
+
+Não te esqueças de te apresentar no chat! Estamos animados por te receber.
+
+A tua jornada começa aqui... 🚀
+`)
+    .setThumbnail('attachment://logoplanet.png');
+
+  // ENVIAR MENSAGEM PÚBLICA
   try {
-    const welcomeChannel =
-      await client.channels.fetch('1478774980312432745');
+    const welcomeChannel = await client.channels.fetch('1478774980312432745');
+
+    if (!welcomeChannel) {
+      throw new Error('Canal de boas-vindas não encontrado.');
+    }
 
     await welcomeChannel.send({
       embeds: [publicWelcomeEmbed],
       files: ['./logoplanet.png']
     });
 
+    console.log(`[WELCOME] Mensagem pública enviada para ${member.user.tag}`);
+  } catch (err) {
+    console.error('[WELCOME] Erro ao enviar mensagem pública:', err);
+  }
+
+  // ENVIAR MENSAGEM PRIVADA
+  try {
+    console.log(`[DM] A tentar enviar mensagem privada para ${member.user.tag}`);
+
     await member.send({
       embeds: [welcomeEmbed],
       files: ['./logoplanet.png']
     });
 
+    console.log(`[DM] Mensagem privada enviada para ${member.user.tag}`);
   } catch (err) {
-    console.log(err);
+    console.error(
+      `[DM] Erro ao enviar mensagem privada para ${member.user.tag}:`,
+      err.code || '',
+      err.message
+    );
   }
 });
 
